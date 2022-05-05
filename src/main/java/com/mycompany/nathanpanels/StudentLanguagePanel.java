@@ -49,6 +49,7 @@ public class StudentLanguagePanel extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         DatabaseTable = new javax.swing.JTable();
+        SwitchButton = new javax.swing.JButton();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -93,7 +94,7 @@ public class StudentLanguagePanel extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(0, 127, 255));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Spanish" }));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -136,6 +137,13 @@ public class StudentLanguagePanel extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(DatabaseTable);
 
+        SwitchButton.setText("Switchboard");
+        SwitchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SwitchButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -157,6 +165,8 @@ public class StudentLanguagePanel extends javax.swing.JFrame {
                 .addGap(43, 43, 43))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addComponent(Return)
+                .addGap(86, 86, 86)
+                .addComponent(SwitchButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(Next, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -178,7 +188,8 @@ public class StudentLanguagePanel extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 109, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Return, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Next))
+                    .addComponent(Next)
+                    .addComponent(SwitchButton))
                 .addGap(39, 39, 39))
         );
 
@@ -242,7 +253,8 @@ public class StudentLanguagePanel extends javax.swing.JFrame {
 
             } catch (SQLException ex) {
                 System.err.println("SQLException: " + ex.getMessage());
-            } finally {
+            } 
+            finally {
                 if (Stmt != null) {
                     try {
                         Stmt.close();
@@ -305,7 +317,8 @@ public class StudentLanguagePanel extends javax.swing.JFrame {
 
             } catch (SQLException ex) {
                 System.err.println("SQLException: " + ex.getMessage());
-            } finally {
+            } 
+            finally {
                 if (Stmt != null) {
                     try {
                         Stmt.close();
@@ -325,17 +338,25 @@ public class StudentLanguagePanel extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_TableSelected
 
+    //once button is pressed it will return you to the student menue
     private void ReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReturnActionPerformed
         StudentMenu SMenu = new StudentMenu();
-        SMenu.show();      // Display StudentMenu here
-
-        dispose();      // Close current form
-                                                
+        SMenu.show();     
+        dispose();
     }//GEN-LAST:event_ReturnActionPerformed
 
     private void NextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NextActionPerformed
-        // TODO add your handling code here:
+        studentLevelsPanel Levels = new studentLevelsPanel();
+        Levels.show();     
+        dispose();
     }//GEN-LAST:event_NextActionPerformed
+
+    private void SwitchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SwitchButtonActionPerformed
+        StudentTeacherSwitch Switch = new StudentTeacherSwitch();
+        Switch.show();     
+        dispose();
+
+    }//GEN-LAST:event_SwitchButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -363,6 +384,9 @@ public class StudentLanguagePanel extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(StudentLanguagePanel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -376,6 +400,7 @@ public class StudentLanguagePanel extends javax.swing.JFrame {
     private javax.swing.JTable DatabaseTable;
     private javax.swing.JButton Next;
     private javax.swing.JButton Return;
+    private javax.swing.JButton SwitchButton;
     private javax.swing.JComboBox<String> TableOptions;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel2;
